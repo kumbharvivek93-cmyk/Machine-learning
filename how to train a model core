@@ -1,0 +1,21 @@
+welcome everyone from vivek kumbhar ( Spyder aidev) 
+
+to train a machine  learning  model
+
+step 1 : import the algorithm you wont to train. the model I do recommended the KNN ( knearestneighbore) 
+
+>>> from sklearn.neghbore import KNeighboreClassifire
+
+step 2 : make instance for it as knn
+
+knn = KNeighboresClassifire(n_neighbors=1)
+
+step 3 : train model using the data that we have loaded and speed in X and y data and target respectively 
+
+knn.train( X,y)
+
+step 4 : make prediction  with the model with prediction  function via providing a sutaible shaped numpy array
+
+knn.predict([[]])
+
+this will returns 
