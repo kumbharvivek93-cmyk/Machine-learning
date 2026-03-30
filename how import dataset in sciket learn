@@ -1,0 +1,23 @@
+to import a dataset in the sciket learn we do follow the folling seteps 
+
+step1  we have to import the sciket leanrns datasets perticular
+
+from sklearn.datasets import load_wine
+
+from sklearn.datasets import load_iris
+
+
+stpe2 make instance for the dataset and convet it into the bunch data format bunch dype is special data type in sciket learn
+
+irsi=load_iris()
+type(iris)
+
+wine=load_winr()
+type(wine)
+
+stpe3 : manupulate the data with the help of attributes
+
+print(iris.data)
+print(iris.traget names)
+  print(iris.features)
+print(iris.features.names)
