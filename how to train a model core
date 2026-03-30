@@ -18,4 +18,6 @@ step 4 : make prediction  with the model with prediction  function via providing
 
 knn.predict([[]])
 
-this will returns 
+this will returns a 1  D numpy array showing  ans. target that we will check ans with 
+
+print ( dbbunch.target_names)
