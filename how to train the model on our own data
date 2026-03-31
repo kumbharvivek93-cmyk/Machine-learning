@@ -1,0 +1,15 @@
+to train the model on our own data we do follow the following stpes 
+
+step :
+store the data at dekstop in csv or excel or jason formate whatever  and copy the path  
+
+step:
+in the jupyter notebook import pandas and load the csv in dataframe
+  
+stpe : slplit the csv into X and y as data and target to train the model 
+   // we can also use numpy to create numpy nd array for sure 
+step :
+
+few steps by model and there we go trian the model as knn.fit(X,y)
+
+  boom knn.predict([[ same shaped array]]    ~ vivek kumbhar spyder aidev   love you all
