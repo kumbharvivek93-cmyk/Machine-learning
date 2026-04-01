@@ -8,15 +8,15 @@ step 1 : import the algorithm you wont to train. the model I do recommended the 
 
 step 2 : make instance for it as knn
 
-knn = KNeighboresClassifire(n_neighbors=1)
+>>>knn = KNeighboresClassifire(n_neighbors=1)
 
-step 3 : train model using the data that we have loaded and speed in X and y data and target respectively 
+step 3 : train model using the data that we have loaded and split in X and y data and target respectively 
 
-knn.train( X,y)
+>>>knn.train( X,y)
 
 step 4 : make prediction  with the model with prediction  function via providing a sutaible shaped numpy array
 
-knn.predict([[]])
+>>>knn.predict([[]])
 
 this will returns a 1  D numpy array showing  ans. target that we will check ans with 
 
