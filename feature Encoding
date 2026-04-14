@@ -1,0 +1,31 @@
+Feature Encoding is the intresting and fun/important term lets break it down 
+
+when doing ML / traning the model /  
+      we requred the data in the numerical form but in the real world datasets this is not all the time possoble that our data
+      is in the numberical form sometimes there are the categories are there like size , color . animal etc. so we have to conver it into the numerical form 
+
+types of encoders    # encoders are under the section of the preprocessing
+
+type ! : OneHotEncoder this is the encoder used to the convert the non ranked / random data like color 
+
+color=["red","green","blur"]
+
+are get convered into binary form 
+
+type 2 : ordinal encoder 
+
+    used to encode the text data which has ranking like low , medium, high etc are the ordinal encoding 
+
+    eg. size=["small","medium","high"]
+    small=0
+    medium=1
+    high=2
+type 3 : label encoder :used to encode the data of the same to the ordinal encoding but mostly used for the target variable y eg
+
+animal=["cat","dog"]
+
+cat =0
+dog=1
+
+the general syntax of these endocers is {{
+     from sklearn.preprocessing import OneHotEncoder/LabelEncoder/OrdinalEncoder 
