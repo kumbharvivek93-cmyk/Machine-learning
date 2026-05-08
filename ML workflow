@@ -1,0 +1,26 @@
+# 1. Load data
+
+# 2. Clean data
+# - missing values
+# - duplicates
+# - wrong datatypes
+# - invalid entries
+
+# 3. Feature engineering
+# - encoding
+# - new columns
+# - feature selection
+
+# 4. Split features and target
+X = df.drop("target", axis=1)
+y = df["target"]
+
+# 5. Train test split
+
+# 6. Feature scaling
+
+# 7. Train model
+
+# 8. Predict
+
+# 9. Evaluate
