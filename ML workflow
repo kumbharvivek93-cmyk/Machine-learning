@@ -23,4 +23,5 @@ y = df["target"]
 
 # 8. Predict
 
-# 9. Evaluate
+# 9. Evaluate            # this isn't all the workfolw but the primary and some fist steps are considerd those 
+# ml is starting form this point
