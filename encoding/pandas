@@ -1,0 +1,4 @@
+df['gender']=df['gender'].map({'male':1,'female':2})
+df=pd.get_dummies(df,df['city'],drop_first=True)
+
+--> but we should not encode with pandas becode it dose not resoulve with the ml pipe lines and all  ~ vivek kali sir (spidey--> venom)
