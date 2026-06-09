@@ -1,0 +1,284 @@
+Great! Since you've already learned the **concepts**, let's focus on the **Scikit-learn (and related library) syntax** used in real projects.
+
+---
+
+# 1. Label Encoding
+
+Used when a single column contains categories and you want integers.
+
+```python
+from sklearn.preprocessing import LabelEncoder
+
+le = LabelEncoder()
+
+df['gender'] = le.fit_transform(df['gender'])
+```
+
+Example:
+
+| Gender |
+| ------ |
+| Male   |
+| Female |
+| Male   |
+
+After encoding:
+
+| Gender |
+| ------ |
+| 1      |
+| 0      |
+| 1      |
+
+See learned classes:
+
+```python
+print(le.classes_)
+```
+
+Inverse transform:
+
+```python
+le.inverse_transform([1,0,1])
+```
+
+---
+
+# 2. Ordinal Encoding
+
+Used when categories have an order.
+
+Example:
+
+```python
+education = [
+    ['Low'],
+    ['Medium'],
+    ['High']
+]
+```
+
+```python
+from sklearn.preprocessing import OrdinalEncoder
+
+oe = OrdinalEncoder(
+    categories=[['Low','Medium','High']]
+)
+
+df[['education']] = oe.fit_transform(df[['education']])
+```
+
+Output:
+
+| Education |
+| --------- |
+| 0         |
+| 1         |
+| 2         |
+
+---
+
+# 3. One-Hot Encoding
+
+Most common encoding for nominal categories.
+
+```python
+from sklearn.preprocessing import OneHotEncoder
+
+ohe = OneHotEncoder(
+    sparse_output=False,
+    handle_unknown='ignore'
+)
+
+encoded = ohe.fit_transform(df[['city']])
+```
+
+Get column names:
+
+```python
+cols = ohe.get_feature_names_out(['city'])
+```
+
+Convert to DataFrame:
+
+```python
+import pandas as pd
+
+encoded_df = pd.DataFrame(encoded, columns=cols)
+
+df = pd.concat(
+    [df.drop('city', axis=1), encoded_df],
+    axis=1
+)
+```
+
+---
+
+# 4. Frequency Encoding
+
+Not available directly in Scikit-learn.
+
+Use Pandas:
+
+```python
+freq = df['city'].value_counts()
+
+df['city_freq'] = df['city'].map(freq)
+```
+
+Example:
+
+| City   |
+| ------ |
+| Pune   |
+| Pune   |
+| Mumbai |
+
+Frequency:
+
+| City_freq |
+| --------- |
+| 2         |
+| 2         |
+| 1         |
+
+---
+
+# 5. Target Encoding
+
+Needs the **category_encoders** package.
+
+Install:
+
+```bash
+pip install category_encoders
+```
+
+Syntax:
+
+```python
+from category_encoders import TargetEncoder
+
+te = TargetEncoder()
+
+df['city'] = te.fit_transform(
+    df['city'],
+    y
+)
+```
+
+or
+
+```python
+df[['city']] = te.fit_transform(
+    df[['city']],
+    y
+)
+```
+
+where
+
+```python
+y = df['target']
+```
+
+---
+
+# 6. Binary Encoding
+
+Also from `category_encoders`.
+
+```python
+from category_encoders import BinaryEncoder
+
+be = BinaryEncoder()
+
+encoded = be.fit_transform(df[['city']])
+
+print(encoded.head())
+```
+
+Example:
+
+```
+city_0 city_1 city_2
+1      0      1
+0      1      1
+```
+
+---
+
+# 7. Embedding Encoding
+
+This is **not a Scikit-learn encoder**.
+
+Embeddings are usually created using:
+
+* TensorFlow
+* Keras
+* PyTorch
+
+Example (Keras):
+
+```python
+from tensorflow.keras.layers import Embedding
+from tensorflow.keras.models import Sequential
+
+model = Sequential()
+
+model.add(
+    Embedding(
+        input_dim=100,
+        output_dim=8
+    )
+)
+```
+
+Meaning:
+
+* 100 categories
+* Each category represented by 8 learned numbers
+
+Example:
+
+```
+Pune   -> [0.23, -1.1, 0.45, ...]
+Mumbai -> [1.4, 0.33, -0.8, ...]
+```
+
+The network learns these values automatically.
+
+---
+
+# What you should know as a beginner ML engineer
+
+Master these first:
+
+1. `LabelEncoder`
+2. `OrdinalEncoder`
+3. `OneHotEncoder`
+4. Frequency Encoding
+5. Target Encoding
+
+These cover most tabular ML projects.
+
+Embeddings become important when you move into:
+
+* Deep Learning
+* NLP
+* Recommendation Systems
+* Large categorical features (thousands of categories)
+
+A useful interview rule:
+
+| Encoder        | Ordered? | Uses Target? |
+| -------------- | -------- | ------------ |
+| LabelEncoder   | ❌        | ❌            |
+| OrdinalEncoder | ✅        | ❌            |
+| OneHotEncoder  | ❌        | ❌            |
+| Frequency      | ❌        | ❌            |
+| Target         | ❌        | ✅            |
+| Binary         | ❌        | ❌            |
+| Embedding      | Learned  | Optional     |
+
+Since you're learning data preprocessing, I can also show the **industry-standard workflow using `ColumnTransformer` + `Pipeline`**, which is how encodings are usually applied in real ML projects rather than directly modifying DataFrames.
