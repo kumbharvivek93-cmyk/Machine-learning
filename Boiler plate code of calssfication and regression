@@ -1,0 +1,20 @@
+from sklearn.datasets import load_iris
+from sklearn.datasets import fectch_california_housing   # import the data that you #wont to work with
+from sklearn.model_selection import StratifiedShuffleSplit
+from sklearn.preprocessing import StanderdScaler 
+from sklearn.preprocessing import OrdinalEncoder
+
+iris=load_iris()
+X,y=iris.data,iris.target
+oe=OrdinalEncoder(category=[[]])
+scaler=StanderdScaler()
+split=StratifiedShuffleSplit(n_split=1,test_size=0.2)
+
+for train_idx,test_idx in split.split(X,y):
+    X_train,X_test=X[train_idx],X[test_idx]
+    y_train,y_test=y[train_idx],y[test_idx]
+    
+X_train_scaled=scaler.fit_transform(X_train)
+X_test_scaled=scaled.transform(X_test)
+
+# these things are some in cese of Classification and Regressin thats why it is #considerd as boilerplate code
