@@ -8,10 +8,19 @@ sciket learn
   scaling the data
   preprocassing
   trainig the model
-
+===============================================================================================================================================================
 
 models performance and accuracy sore or R2 socre depends upon the data / outliers/ relation ship between target and data
 
 the relation bet. feture and data is found with
 
 print(df.corr(numeric_only=True))
+
+
+
+===============================================================================================================================================================
+
+for the machine learning first step is to celan data
+then all intermidiate process and  -> train a model 
+
+final step is to make a pipeline and integrate this model with flasks web app
