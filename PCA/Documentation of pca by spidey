@@ -1,0 +1,24 @@
+PCA means principle component analysis , 
+
+take a example : you have a data set of 1000 features but handaling 1000 features for model training is a bit tricky 
+and decreases models performance so we have pca for that 
+problem to extract only principal / main  -> featurs in form dataset
+
+syntax:
+
+from sklearn.decompositon import PCA
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import StanderdScaler
+from sklearn.preprocessing import Ordinal encoder
+from sklearn.liner_model import Logesticregression
+
+pca=PCA(n_components=# number of col. that you wont to keep having high corr})
+clf=Logesticregressin()
+
+# common clf . raining steps
+X_train_reduced=pca.fit_transform(X_train)
+X_test_reduced=pca.trainsform(X_test
+clf.train(X_train_reduced_scaled,y_train)
+clf.score(X_test_reduced_scaled,y_test)
+
+# that is about pca in ML                  ~ spidey / vivek sir   / love you all
