@@ -1,0 +1,23 @@
+To save a machine learning model we do always prefer the joblib approch rather then the pickel one because it is more efficiant than it 
+
+IF WE HAVE OUR DATASET IN SIZE OF GBS THEN TO TRAIN A MODEL IS VERY TIME TAKING TO OVERCOME THIS WE ARE GOING TO SAVE THAT MODEL AS FILE A BINARY FILE OR SOMETHING LIKE THAT THIS 
+THING IS DONE VIA JOBLIB
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
+to save a model
+
+from sklearn.externals import joblib
+joblib.dump(reg/clf, "filename.pkl")
+
+
+to load the model 
+
+reg/clf=joblib.load("filename.pkl")
+
+
+then we can do --> 
+
+reg.predict([[]]) # can predict data rather than traning model everytime
+
+
+------------------------------------------------------------------------------------------------------------------------------------------------------------------
