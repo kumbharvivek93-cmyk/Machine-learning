@@ -1,0 +1,2 @@
+when model predict the value then it calculates the error and improves the line and m and c 
+and guess again thus improves the line , m and c again    this process is done using Gradient Descent ¬ vivek sir / spidey 
