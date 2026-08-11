@@ -1,2 +1,9 @@
 Lasso is extremely useful when you have many features.
 
+Take a dataset with 10–20 features, train:
+
+Linear Regression
+Ridge
+Lasso
+
+Then compare:model.coeff_
